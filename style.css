@@ -1,0 +1,587 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0d0b14;
+    color: white;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   NAVIGATION BAR
+===================================================== */
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(13, 11, 20, 0.85);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 1000;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        height 0.3s ease;
+}
+
+
+/* Navbar after scrolling */
+
+#navbar.scrolled {
+    height: 65px;
+
+    background: #25105c;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Logo */
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* Navigation links */
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    padding: 8px 0;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Hover color */
+
+.nav-links a:hover {
+    color: #6da9ff;
+}
+
+
+/* Underline animation */
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: #5b8cff;
+
+    border-radius: 10px;
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* Active link */
+
+.nav-links a.active {
+    color: #7eb3ff;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
+
+.menu-toggle {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 7% 80px;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(77, 124, 255, 0.25),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #1d0b4d,
+            #321083,
+            #1768b5
+        );
+}
+
+
+/* Hero content */
+
+.hero-content {
+    max-width: 750px;
+}
+
+.small-title {
+    color: #8dbdff;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 95px);
+
+    line-height: 0.95;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: #7eb6ff;
+}
+
+.hero p {
+    max-width: 650px;
+
+    font-size: 19px;
+
+    color: #e1e1e1;
+
+    margin-bottom: 30px;
+}
+
+
+/* Button */
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    border-radius: 30px;
+
+    background: #5795ff;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.btn:hover {
+    background: #347cff;
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+.section {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 100px 7%;
+}
+
+.section-content {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.section-label {
+    color: #73aaff;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.section h2 {
+    font-size: clamp(38px, 6vw, 65px);
+
+    margin-bottom: 25px;
+}
+
+.section-content > p:not(.section-label) {
+    max-width: 750px;
+
+    font-size: 18px;
+
+    color: #d2d2d2;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+    background: #120b26;
+}
+
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.services {
+    background:
+        linear-gradient(
+            135deg,
+            #24105c,
+            #172f70
+        );
+}
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 45px;
+}
+
+.card {
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 15px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.icon {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 23px;
+
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #d4d4d4;
+}
+
+
+/* =====================================================
+   PORTFOLIO
+===================================================== */
+
+.portfolio {
+    background: #0c0c14;
+}
+
+.projects {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 45px;
+}
+
+.project {
+    min-height: 230px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #321477,
+            #1769ad
+        );
+
+    border-radius: 15px;
+
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: scale(1.03);
+}
+
+.project span {
+    color: #9fc5ff;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.project h3 {
+    font-size: 25px;
+
+    margin: 35px 0 10px;
+}
+
+.project p {
+    color: #ddd;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #160b38,
+            #0f5da5
+        );
+}
+
+.contact .section-content {
+    display: flex;
+
+    align-items: center;
+
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    background: #08070c;
+
+    color: #999;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* Navbar */
+
+    #navbar {
+        padding: 0 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+
+        top: 75px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        background: #21104f;
+
+        padding: 15px 0;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 15px 7%;
+
+        width: 100%;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        padding: 120px 6% 70px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+
+    /* Sections */
+
+    .section {
+        padding: 90px 6%;
+    }
+
+
+    /* Cards */
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Portfolio */
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .section h2 {
+        font-size: 40px;
+    }
+
+    .card,
+    .project {
+        padding: 25px;
+    }
+
+}
